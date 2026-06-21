@@ -1,8 +1,8 @@
 {
-  "name": "MANNY PAY",
-  "short_name": "MANNY PAY",
-  "description": "MANNY PAY mobile fintech app powered by Asira Wallet Infrastructure",
-  "start_url": "/manny-pay/login",
+  "name": "FOODEX PAY",
+  "short_name": "FOODEX PAY",
+  "description": "FOODEX PAY mobile fintech app powered by TDI Wallet Infrastructure",
+  "start_url": "/foodex-pay/login",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#D50000",

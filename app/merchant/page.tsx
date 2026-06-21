@@ -18,7 +18,7 @@ export default function MerchantPage() {
 
   useEffect(() => {
     const existing = localStorage.getItem(
-      "manny_pay_wallet_transactions"
+      "foodex_pay_wallet_transactions"
     );
 
     const txs = existing ? JSON.parse(existing) : [];
@@ -45,7 +45,7 @@ export default function MerchantPage() {
       <div className="mx-auto max-w-5xl">
         <div className="rounded-3xl bg-white/5 p-8">
           <p className="text-sm text-white/50">
-            Manny Pay Merchant Portal
+            Foodex Pay Merchant Portal
           </p>
 
           <h1 className="mt-3 text-5xl font-bold">

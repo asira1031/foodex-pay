@@ -7,37 +7,37 @@ const menuItems = [
     title: "Profile",
     description: "Manage your personal information",
     icon: "👤",
-    route: "/manny-pay/more/profile",
+    route: "/foodex-pay/more/profile",
   },
   {
     title: "Security",
     description: "PIN, biometrics, and device settings",
     icon: "🔒",
-    route: "/manny-pay/more/security",
+    route: "/foodex-pay/more/security",
   },
   {
     title: "Notifications",
     description: "Wallet alerts and updates",
     icon: "🔔",
-    route: "/manny-pay/more/notifications",
+    route: "/foodex-pay/more/notifications",
   },
   {
     title: "Transaction Limits",
     description: "View your account limits",
     icon: "📈",
-    route: "/manny-pay/more/transaction-limits",
+    route: "/foodex-pay/more/transaction-limits",
   },
   {
     title: "Help Center",
     description: "Support and FAQs",
     icon: "❓",
-    route: "/manny-pay/more/help-center",
+    route: "/foodex-pay/more/help-center",
   },
   {
-    title: "About Manny Pay",
+    title: "About Foodex Pay",
     description: "Version and app information",
     icon: "ℹ️",
-    route: "/manny-pay/more/about-manny-pay",
+    route: "/foodex-pay/more/about-foodex-pay",
   },
 ];
 
@@ -45,11 +45,11 @@ export default function MorePage() {
   const router = useRouter();
 
   function handleLogout() {
-    localStorage.removeItem("manny_pay_logged_in");
+    localStorage.removeItem("foodex_pay_logged_in");
 
     alert("Logged out successfully.");
 
-    router.push("/manny-pay/login");
+    router.push("/foodex-pay/login");
   }
 
   return (
@@ -64,7 +64,7 @@ export default function MorePage() {
 
         <div className="rounded-3xl bg-black p-6 text-white shadow-sm">
           <p className="text-sm text-white/50">
-            Manny Pay
+            Foodex Pay
           </p>
 
           <h1 className="mt-3 text-4xl font-bold">

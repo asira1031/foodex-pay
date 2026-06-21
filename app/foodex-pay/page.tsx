@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function MannyWalletIntroPage() {
+export default function FoodexPayIntroPage() {
   const router = useRouter();
 
   return (
@@ -12,27 +12,27 @@ export default function MannyWalletIntroPage() {
         <div className="mb-8 text-center">
           <Image
             src="/icon-192.png"
-            alt="Manny Pay"
+            alt="Foodex Pay"
             width={90}
             height={90}
             priority
             className="mx-auto rounded-3xl shadow-xl"
           />
 
-          <h1 className="mt-5 text-4xl font-black">Manny Pay</h1>
+          <h1 className="mt-5 text-4xl font-black">Foodex Pay</h1>
 
           <p className="mt-3 text-gray-500">
             A secure digital wallet for cash-in, send money, QR payments,
-            bills, savings, and future financial services.
+            bills, savings, and merchant services.
           </p>
         </div>
 
         <div className="rounded-3xl bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold">What is Manny Pay?</h2>
+          <h2 className="text-2xl font-bold">What is Foodex Pay?</h2>
 
           <p className="mt-3 text-gray-500">
-            Manny Pay is built to help users manage money safely and easily
-            through a simple mobile-style wallet dashboard.
+            Foodex Pay helps users manage money safely and easily through a
+            modern digital wallet experience.
           </p>
 
           <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
@@ -62,9 +62,9 @@ export default function MannyWalletIntroPage() {
           <h2 className="text-2xl font-bold">Wallet Policy</h2>
 
           <p className="mt-3 text-sm text-white/70">
-            By using Manny Pay, users agree to provide accurate account
-            information, protect their login access, and use the wallet only for
-            lawful transactions.
+            By using Foodex Pay, users agree to provide accurate account
+            information, protect their login access, and use the wallet only
+            for lawful transactions.
           </p>
 
           <p className="mt-3 text-sm text-white/70">
@@ -77,7 +77,7 @@ export default function MannyWalletIntroPage() {
           <h2 className="text-2xl font-bold">Privacy & Security</h2>
 
           <p className="mt-3 text-sm text-gray-500">
-            Manny Pay is designed with account protection, transaction
+            Foodex Pay is designed with account protection, transaction
             monitoring, and secure access in mind. Never share your password,
             OTP, or wallet access with anyone.
           </p>
@@ -92,7 +92,7 @@ export default function MannyWalletIntroPage() {
           </button>
 
           <button
-            onClick={() => router.push("/manny-pay/signup")}
+            onClick={() => router.push("/foodex-pay/signup")}
             className="rounded-2xl bg-black py-4 font-bold text-white"
           >
             Open Wallet
@@ -100,7 +100,7 @@ export default function MannyWalletIntroPage() {
         </div>
 
         <p className="mt-6 text-center text-xs text-gray-400">
-          © 2026 Manny Pay. All rights reserved.
+          © 2026 Foodex Pay. All rights reserved.
         </p>
       </div>
     </main>

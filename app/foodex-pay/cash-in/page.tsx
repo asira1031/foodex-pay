@@ -26,12 +26,12 @@ export default function CashInPage() {
     }
 
     const currentBalance = Number(
-      localStorage.getItem("manny_pay_balance") || "0"
+      localStorage.getItem("foodex_pay_balance") || "0"
     );
 
     const updatedBalance = currentBalance + Number(amount);
 
-    localStorage.setItem("manny_pay_balance", updatedBalance.toString());
+    localStorage.setItem("foodex_pay_balance", updatedBalance.toString());
 
     const transaction: WalletTransaction = {
       id: `AW-CASHIN-${Date.now()}`,
@@ -42,18 +42,18 @@ export default function CashInPage() {
       createdAt: new Date().toISOString(),
     };
 
-    const existing = localStorage.getItem("manny_pay_transactions");
+    const existing = localStorage.getItem("foodex_pay_transactions");
     const transactions: WalletTransaction[] = existing
       ? JSON.parse(existing)
       : [];
 
     localStorage.setItem(
-      "manny_pay_transactions",
+      "foodex_pay_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
     alert(`Cash in successful: ₱${Number(amount).toLocaleString()} via ${method}`);
-    router.push("/manny-pay/dashboard");
+    router.push("/foodex-pay/dashboard");
   }
 
   return (
@@ -65,7 +65,7 @@ export default function CashInPage() {
 
         <h1 className="mb-2 text-3xl font-bold">Cash In</h1>
 
-        <p className="mb-8 text-gray-500">Add money to your Manny Pay Wallet.</p>
+        <p className="mb-8 text-gray-500">Add money to your foodex Pay Wallet.</p>
 
         <div className="rounded-3xl bg-white p-5 shadow-sm">
           <label className="text-sm text-gray-500">Amount</label>

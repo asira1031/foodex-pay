@@ -9,7 +9,7 @@ export default function ReceiveCryptoPage() {
 
   const [network, setNetwork] = useState("ERC20");
 
-  const walletAddress = "0Xmanny000000000000000000000000000000000000";
+  const walletAddress = "0Xfoodex000000000000000000000000000000000000";
 
   function copyAddress() {
     navigator.clipboard.writeText(walletAddress);

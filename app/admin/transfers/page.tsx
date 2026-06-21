@@ -39,7 +39,7 @@ export default function AdminTransfersPage() {
     action: `TRANSFER_STATUS_UPDATED_TO_${status}`,
     entity_type: "TRANSACTION",
     entity_id: String(id),
-    details: `Transfer MANNY-${id} status changed to ${status}`,
+    details: `Transfer FOODEX-${id} status changed to ${status}`,
   });
 
   await loadTransfers();
@@ -113,7 +113,7 @@ export default function AdminTransfersPage() {
                   key={tx.id}
                   className="border-t border-white/10 hover:bg-white/5"
                 >
-                  <td className="p-4">MANNY-{tx.id}</td>
+                  <td className="p-4">FOODEX-{tx.id}</td>
                   <td className="p-4">{tx.sender_name}</td>
                   <td className="p-4">{tx.receiver_name}</td>
                   <td className="p-4">${Number(tx.amount).toLocaleString()}</td>
@@ -160,7 +160,7 @@ export default function AdminTransfersPage() {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h2 className="text-3xl font-black text-emerald-400">
-                  MANNY-{selectedTx.id}
+                  FOODEX-{selectedTx.id}
                 </h2>
                 <p className="text-white/50 mt-1">
                   Full remittance transaction details

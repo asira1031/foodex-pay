@@ -14,7 +14,7 @@ export default function SendCryptoPage() {
   const [balances, setBalances] = useState<Record<string, number>>({});
 
   useEffect(() => {
-    const stored = localStorage.getItem("manny_pay_crypto_balances");
+    const stored = localStorage.getItem("foodex_pay_crypto_balances");
     setBalances(stored ? JSON.parse(stored) : {});
   }, []);
 
@@ -40,7 +40,7 @@ export default function SendCryptoPage() {
     };
 
     localStorage.setItem(
-      "manny_pay_crypto_balances",
+      "foodex_pay_crypto_balances",
       JSON.stringify(updatedBalances)
     );
 
@@ -54,20 +54,20 @@ export default function SendCryptoPage() {
       createdAt: new Date().toISOString(),
     };
 
-    const existing = localStorage.getItem("manny_pay_transactions");
+    const existing = localStorage.getItem("foodex_pay_transactions");
     const transactions = existing ? JSON.parse(existing) : [];
 
     localStorage.setItem(
-      "manny_pay_transactions",
+      "foodexy_pay_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
     localStorage.setItem(
-      "manny_pay_latest_receipt",
+      "foodex_pay_latest_receipt",
       JSON.stringify(transaction)
     );
 
-    router.push("/manny-pay/receipt");
+    router.push("/foodex-pay/receipt");
   }
 
   return (

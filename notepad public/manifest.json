@@ -1,8 +1,8 @@
 {
-  "name": "Manny Pay",
-  "short_name": "Manny Pay",
+  "name": "Foodex Pay",
+  "short_name": "Foodex Pay",
   "description": "Digital wallet for payments, transfers, QR, savings, and more.",
-  "start_url": "/manny-pay",
+  "start_url": "/foodex-pay",
   "display": "standalone",
   "background_color": "#f7f7f7",
   "theme_color": "#000000",

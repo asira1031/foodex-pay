@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     console.log("PHONE OTP FOR TEST:", otp);
 
     const { error } = await supabase
-      .from("manny_pay_clients")
+      .from("foodex_pay_clients")
       .update({
         phone_otp_code: otp,
         phone_otp_expires_at: expires,
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
     if (error) throw error;
 
     await twilioClient.messages.create({
-      body: `Your Manny Pay verification code is: ${otp}`,
+      body: `Your Foodex Pay verification code is: ${otp}`,
       from: process.env.TWILIO_PHONE_NUMBER!,
       to: phone,
     });

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 type Step = "form" | "email" | "phone";
 
-export default function MannyPaySignupPage() {
+export default function FoodexPaySignupPage() {
   const [step, setStep] = useState<Step>("form");
 
   const [fullName, setFullName] = useState("");
@@ -34,7 +34,7 @@ export default function MannyPaySignupPage() {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/manny-pay/send-otp", {
+      const res = await fetch("/api/foodex-pay/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -71,7 +71,7 @@ export default function MannyPaySignupPage() {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/manny-pay/verify-otp", {
+      const res = await fetch("/api/foodex-pay/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp: emailOtp }),
@@ -84,14 +84,14 @@ export default function MannyPaySignupPage() {
         return;
       }
 
-    localStorage.setItem("manny_pay_wallet_logged_in", "yes");
-localStorage.setItem("manny_pay_wallet_full_name", fullName);
-localStorage.setItem("manny_pay_wallet_email", email);
-localStorage.setItem("manny_pay_wallet_phone", mobile);
-localStorage.setItem(`manny_pay_wallet_balance_${mobile}`, "0");
+    localStorage.setItem("foodex_pay_wallet_logged_in", "yes");
+localStorage.setItem("foodex_pay_wallet_full_name", fullName);
+localStorage.setItem("foodex_pay_wallet_email", email);
+localStorage.setItem("foodex_pay_wallet_phone", mobile);
+localStorage.setItem(`foodex_pay_wallet_balance_${mobile}`, "0");
 
 alert("Email verified. Wallet account created successfully.");
-window.location.href = "/manny-pay/dashboard";
+window.location.href = "/foodex-pay/dashboard";
     } catch (error) {
       console.error("VERIFY EMAIL OTP ERROR:", error);
       alert("Verify email OTP error.");
@@ -109,7 +109,7 @@ window.location.href = "/manny-pay/dashboard";
     try {
       setLoading(true);
 
-      const res = await fetch("/api/manny-pay/verify-phone-otp", {
+      const res = await fetch("/api/foodex-pay/verify-phone-otp", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
@@ -125,14 +125,14 @@ window.location.href = "/manny-pay/dashboard";
         return;
       }
 
-      localStorage.setItem("manny_pay_wallet_logged_in", "yes");
-      localStorage.setItem("manny_pay_wallet_full_name", fullName);
-      localStorage.setItem("manny_pay_wallet_email", email);
-      localStorage.setItem("manny_pay_wallet_phone", mobile);
-      localStorage.setItem(`manny_pay_wallet_balance_${mobile}`, "0");
+      localStorage.setItem("foodex_pay_wallet_logged_in", "yes");
+      localStorage.setItem("foodex_pay_wallet_full_name", fullName);
+      localStorage.setItem("foodex_pay_wallet_email", email);
+      localStorage.setItem("foodex_pay_wallet_phone", mobile);
+      localStorage.setItem(`foodex_pay_wallet_balance_${mobile}`, "0");
 
       alert("Email and phone verified. Wallet account created successfully.");
-      window.location.href = "/manny-pay/dashboard";
+      window.location.href = "/foodex-pay/dashboard";
     } catch (error) {
       console.error("VERIFY PHONE OTP ERROR:", error);
       alert("Verify phone OTP error.");
@@ -147,14 +147,14 @@ window.location.href = "/manny-pay/dashboard";
         <div className="mb-6 flex flex-col items-center">
           <Image
             src="/icon-192.png"
-            alt="Manny Pay Wallet"
+            alt="Foodex Pay Wallet"
             width={90}
             height={90}
             priority
             className="rounded-3xl bg-white p-2 shadow-lg"
           />
 
-          <h1 className="mt-4 text-3xl font-bold">MANNY PAY</h1>
+          <h1 className="mt-4 text-3xl font-bold">FOODEX PAY</h1>
           <p className="mt-2 text-white/50">
             Email + phone verification signup
           </p>
@@ -265,7 +265,7 @@ window.location.href = "/manny-pay/dashboard";
         <button
           type="button"
           onClick={() => {
-            window.location.href = "/manny-pay/login";
+            window.location.href = "/FOODEX-pay/login";
           }}
           className="mt-5 w-full text-sm text-[#60A5FA] transition hover:text-[#93C5FD]"
         >

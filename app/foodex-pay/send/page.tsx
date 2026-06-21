@@ -10,7 +10,7 @@ export default function SendMoneyPage() {
   async function handleSend() {
     setMessage("");
 
-    const res = await fetch("/api/manny-pay/send-money", {
+    const res = await fetch("/api/foodex-pay/send-money", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

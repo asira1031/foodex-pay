@@ -12,7 +12,7 @@ const initialCards = [
     amount: 1000,
     currency: "USD",
     status: "PROCESSING",
-    linkedTransfer: "MANNY-101",
+    linkedTransfer: "FOODEX-101",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const initialCards = [
     amount: 2500,
     currency: "USD",
     status: "APPROVED",
-    linkedTransfer: "MANNY-102",
+    linkedTransfer: "FOODEX-102",
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const initialCards = [
     amount: 5000,
     currency: "USD",
     status: "COMPLETED",
-    linkedTransfer: "MANNY-103",
+    linkedTransfer: "FOODEX-103",
   },
 ];
 
@@ -148,7 +148,7 @@ export default function AdminCardsPage() {
                 <div className="flex justify-between items-start">
                   <div>
                     <p className="text-xs text-white/50">
-                      MANNY VIRTUAL CARD
+                      FOODEX VIRTUAL CARD
                     </p>
 
                     <h2 className="text-xl font-black mt-2">

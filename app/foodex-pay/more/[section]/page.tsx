@@ -7,15 +7,15 @@ export default function MoreSectionPage() {
   const router = useRouter();
   const params = useParams();
 
-  const [fullName, setFullName] = useState("Manny User");
+  const [fullName, setFullName] = useState("Foodex User");
   const [phone, setPhone] = useState("09XXXXXXXXX");
 
   const rawSection = String(params.section || "");
   const section = rawSection.replaceAll("-", " ");
 
   useEffect(() => {
-    setFullName(localStorage.getItem("manny_pay_full_name") || "Manny User");
-    setPhone(localStorage.getItem("manny_pay_phone") || "09XXXXXXXXX");
+    setFullName(localStorage.getItem("foodex_pay_full_name") || "Foodex User");
+    setPhone(localStorage.getItem("foodex_pay_phone") || "09XXXXXXXXX");
   }, []);
 
   const walletId = "AW-CLIENT-0001";
@@ -75,7 +75,7 @@ export default function MoreSectionPage() {
     if (rawSection === "help-center") {
       return (
         <div className="space-y-4">
-          <Info label="Support Email" value="support@manny-pay.com" />
+          <Info label="Support Email" value="support@foodex-pay.com" />
           <Info label="Help Topic" value="Cash In, Send Money, Bills, Crypto" />
           <Info label="Response Time" value="24-48 hours" />
           <Info label="Emergency Support" value="Active Soon" />
@@ -83,11 +83,11 @@ export default function MoreSectionPage() {
       );
     }
 
-    if (rawSection === "about-manny-pay") {
+    if (rawSection === "about-foodex-pay") {
       return (
         <div className="space-y-4">
-          <Info label="App Name" value="Manny Pay" />
-          <Info label="Version" value="1.0.0 Demo" />
+          <Info label="App Name" value="Foodex Pay" />
+          <Info label="Version" value="1.0.0 " />
           <Info label="Environment" value="Vercel / Mobile PWA" />
           <Info label="Status" value="Prototype Active" />
         </div>
@@ -118,7 +118,7 @@ export default function MoreSectionPage() {
           <div className="mt-8">{renderContent()}</div>
 
           <button
-            onClick={() => router.push("/manny-pay/dashboard")}
+            onClick={() => router.push("/foodex-pay/dashboard")}
             className="mt-8 w-full rounded-2xl bg-gradient-to-r from-[#0B1F6D] to-[#1E3A8A] py-4 font-bold text-white shadow-lg transition hover:from-[#1E3A8A] hover:to-[#2563EB]"
           >
             Back to Dashboard

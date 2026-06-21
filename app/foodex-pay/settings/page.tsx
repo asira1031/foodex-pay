@@ -6,19 +6,19 @@ export default function WalletSettingsPage() {
   const items = [
     {
       title: "Profile",
-      href: "/manny-payt/settings/profile",
+      href: "/foodex-payt/settings/profile",
     },
     {
       title: "KYC Verification",
-      href: "/manny-pay/settings/kyc",
+      href: "/foodex-pay/settings/kyc",
     },
     {
       title: "Biometric Login Ready",
-      href: "/manny-pay/settings/biometric",
+      href: "/foodex-pay/settings/biometric",
     },
     {
       title: "Security PIN / OTP",
-      href: "/manny-pay/settings/security",
+      href: "/foodex-pay/settings/security",
     },
   ];
 
@@ -30,7 +30,7 @@ export default function WalletSettingsPage() {
         </h1>
 
         <p className="text-white/40 mt-2">
-          MANNY Pay account settings
+          FOODEX Pay account settings
         </p>
 
         <div className="mt-8 space-y-4">

@@ -94,7 +94,7 @@ if (bankData.connected) {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
           <div>
             <h1 className="text-5xl font-black text-emerald-400">
-              Manny Control Center
+              Foodex Control Center
             </h1>
 
             <p className="text-white/50 mt-3">
@@ -193,7 +193,7 @@ if (bankData.connected) {
                       key={tx.id}
                       className="border-t border-white/10"
                     >
-                      <td className="py-4">MANNY-{tx.id}</td>
+                      <td className="py-4">FOODEX-{tx.id}</td>
                       <td className="py-4">{tx.sender_name || "N/A"}</td>
                       <td className="py-4">{tx.receiver_name || "N/A"}</td>
                       <td className="py-4">

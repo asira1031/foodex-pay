@@ -10,12 +10,12 @@ type Product = {
 };
 
 const products: Product[] = [
-  { name: "Grocery Voucher", price: 100, merchant: "Manny Market", icon: "🛒" },
-  { name: "Food Voucher", price: 150, merchant: "Manny Food Hub", icon: "🍔" },
-  { name: "Coffee Voucher", price: 120, merchant: "Manny Cafe", icon: "☕" },
-  { name: "Movie Ticket", price: 250, merchant: "Manny Cinema", icon: "🎬" },
-  { name: "Travel Coupon", price: 500, merchant: "Manny Travel", icon: "✈️" },
-  { name: "Gift Card", price: 300, merchant: "Manny Rewards", icon: "🎁" },
+  { name: "Grocery Voucher", price: 100, merchant: "Foodex Market", icon: "🛒" },
+  { name: "Food Voucher", price: 150, merchant: "Foodex Food Hub", icon: "🍔" },
+  { name: "Coffee Voucher", price: 120, merchant: "Foodex Cafe", icon: "☕" },
+  { name: "Movie Ticket", price: 250, merchant: "Foodex Cinema", icon: "🎬" },
+  { name: "Travel Coupon", price: 500, merchant: "Foodex Travel", icon: "✈️" },
+  { name: "Gift Card", price: 300, merchant: "Foodex Rewards", icon: "🎁" },
 ];
 
 export default function ShopPage() {
@@ -23,7 +23,7 @@ export default function ShopPage() {
 
   function buyProduct(product: Product) {
     const currentBalance = Number(
-      localStorage.getItem("manny_pay_wallet_balance") || "0"
+      localStorage.getItem("foodex_pay_wallet_balance") || "0"
     );
 
     if (product.price > currentBalance) {
@@ -34,7 +34,7 @@ export default function ShopPage() {
     const reference = `AW-SHOP-${Date.now()}`;
     const updatedBalance = currentBalance - product.price;
 
-    localStorage.setItem("manny_pay_wallet_balance", updatedBalance.toString());
+    localStorage.setItem("foodex_pay_wallet_balance", updatedBalance.toString());
 
     const transaction = {
       id: reference,
@@ -46,17 +46,17 @@ export default function ShopPage() {
       createdAt: new Date().toISOString(),
     };
 
-    const existing = localStorage.getItem("manny_pay_wallet_transactions");
+    const existing = localStorage.getItem("fodex_pay_wallet_transactions");
     const transactions = existing ? JSON.parse(existing) : [];
 
     localStorage.setItem(
-      "manny_pay_wallet_transactions",
+      "foodex_pay_wallet_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
-    localStorage.setItem("manny_pay_wallet_latest_receipt", JSON.stringify(transaction));
+    localStorage.setItem("foodex_pay_wallet_latest_receipt", JSON.stringify(transaction));
 
-    router.push("/manny-pay/receipt");
+    router.push("/foodex-pay/receipt");
   }
 
   return (
@@ -70,7 +70,7 @@ export default function ShopPage() {
           <h1 className="text-3xl font-bold">Shop</h1>
 
           <p className="mt-3 text-gray-500">
-            Discover shopping deals and merchants with Manny Pay Wallet.
+            Discover shopping deals and merchants with Foodex Pay Wallet.
           </p>
 
           <div className="mt-8 space-y-4">

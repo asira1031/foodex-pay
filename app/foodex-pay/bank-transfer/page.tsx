@@ -45,7 +45,7 @@ export default function BankTransferPage() {
 
     const transferAmount = Number(amount);
     const currentBalance = Number(
-      localStorage.getItem("manny_wallet_balance") || "0"
+      localStorage.getItem("foodex_wallet_balance") || "0"
     );
 
     if (transferAmount <= 0) {
@@ -61,7 +61,7 @@ export default function BankTransferPage() {
     const reference = `AW-BANK-${Date.now()}`;
     const updatedBalance = currentBalance - transferAmount;
 
-    localStorage.setItem("manny_wallet_balance", updatedBalance.toString());
+    localStorage.setItem("foodex_wallet_balance", updatedBalance.toString());
 
     const transaction: WalletTransaction = {
       id: reference,
@@ -74,17 +74,17 @@ export default function BankTransferPage() {
       createdAt: new Date().toISOString(),
     };
 
-    const existing = localStorage.getItem("manny_wallet_transactions");
+    const existing = localStorage.getItem("foodex_wallet_transactions");
     const transactions: WalletTransaction[] = existing ? JSON.parse(existing) : [];
 
     localStorage.setItem(
-      "manny_pay_transactions",
+      "foodex_pay_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
-    localStorage.setItem("manny_pay_latest_receipt", JSON.stringify(transaction));
+    localStorage.setItem("foodex_pay_latest_receipt", JSON.stringify(transaction));
 
-    router.push("/manny-pay/receipt");
+    router.push("/foodex-pay/receipt");
   }
 
   return (

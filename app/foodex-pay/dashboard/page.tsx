@@ -16,43 +16,43 @@ type WalletTransaction = {
   createdAt: string;
 };
 
-export default function MannyPayDashboard() {
+export default function FoodexPayDashboard() {
   const router = useRouter();
 
   const [tab, setTab] = useState<Tab>("wallet");
   const [showQr, setShowQr] = useState(false);
-  const [fullName, setFullName] = useState("Manny User");
+  const [fullName, setFullName] = useState(" User");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [balance, setBalance] = useState(0);
   const [kycStatus, setKycStatus] = useState<KycStatus>("NOT_SUBMITTED");
   const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
 
-  const savingsAccount = "MANNY-SAV-0000000001";
+  const savingsAccount = "FOODEX-SAV-0000000001";
 
   useEffect(() => {
     const loggedIn =
-      localStorage.getItem("manny_pay_logged_in") ||
-      localStorage.getItem("manny_pay_wallet_logged_in");
+      localStorage.getItem("foodex_pay_logged_in") ||
+      localStorage.getItem("foodex_pay_wallet_logged_in");
 
     if (loggedIn !== "yes") {
-      router.push("/manny-pay/login");
+      router.push("/foodex-pay/login");
       return;
     }
 
     const userName =
-      localStorage.getItem("manny_pay_full_name") ||
-      localStorage.getItem("manny_pay_wallet_full_name") ||
-      "Manny User";
+      localStorage.getItem("foodex_pay_full_name") ||
+      localStorage.getItem("foodex_pay_wallet_full_name") ||
+      "Foodex User";
 
     const userPhone =
-      localStorage.getItem("manny_pay_phone") ||
-      localStorage.getItem("manny_pay_wallet_phone") ||
+      localStorage.getItem("foodex_pay_phone") ||
+      localStorage.getItem("foodex_pay_wallet_phone") ||
       "";
 
     const userEmail =
-      localStorage.getItem("manny_pay_email") ||
-      localStorage.getItem("manny_pay_wallet_email") ||
+      localStorage.getItem("foodex_pay_email") ||
+      localStorage.getItem("foodex_pay_wallet_email") ||
       "";
 
     setFullName(userName);
@@ -60,13 +60,13 @@ export default function MannyPayDashboard() {
     setEmail(userEmail);
 
     const savedBalance =
-      localStorage.getItem(`manny_pay_balance_${userPhone}`) ||
-      localStorage.getItem(`manny_pay_wallet_balance_${userPhone}`) ||
+      localStorage.getItem(`foodex_pay_balance_${userPhone}`) ||
+      localStorage.getItem(`foodex_pay_wallet_balance_${userPhone}`) ||
       "0";
 
     setBalance(Number(savedBalance));
 
-    const stored = localStorage.getItem("manny_pay_transactions");
+    const stored = localStorage.getItem("foodex_pay_transactions");
     setTransactions(stored ? JSON.parse(stored) : []);
 
     loadKycStatus(userEmail);
@@ -79,7 +79,7 @@ export default function MannyPayDashboard() {
         return;
       }
 
-      const res = await fetch("/api/manny-pay/admin/kyc", {
+      const res = await fetch("/api/foodex-pay/admin/kyc", {
         method: "GET",
         cache: "no-store",
       });
@@ -118,7 +118,7 @@ function requireKyc(route: string) {
 
   // if (kycStatus !== "APPROVED") {
   //   alert("KYC verification required before using this feature.");
-  //   router.push("/manny-pay/kyc");
+  //   router.push("/foodex-pay/kyc");
   //   return;
   // }
 
@@ -126,9 +126,9 @@ function requireKyc(route: string) {
   }
 
   function handleLogout() {
-    localStorage.removeItem("manny_pay_logged_in");
-    localStorage.removeItem("manny_pay_wallet_logged_in");
-    router.push("/manny-pay/login");
+    localStorage.removeItem("foodex_pay_logged_in");
+    localStorage.removeItem("foodex_pay_wallet_logged_in");
+    router.push("/foodex-pay/login");
   }
 
   const kycBadge =
@@ -159,8 +159,8 @@ function requireKyc(route: string) {
           </div>
 <div className="mb-6 overflow-hidden rounded-3xl shadow-xl">
   <Image
-    src="/manny-pay-home.png"
-    alt="Manny Pay Home"
+    src="/foodex-pay-home.png"
+    alt="Foodex Pay Home"
     width={1200}
     height={700}
     priority
@@ -180,7 +180,7 @@ function requireKyc(route: string) {
 
           {kycStatus !== "APPROVED" && (
             <button
-              onClick={() => router.push("/manny-pay/kyc")}
+              onClick={() => router.push("/fooder-pay/kyc")}
               className="mt-3 w-full rounded-2xl bg-black py-3 font-bold text-white"
             >
               Complete KYC
@@ -216,14 +216,14 @@ function requireKyc(route: string) {
 
               <div className="mt-6 grid grid-cols-2 gap-3">
                 <button
-                  onClick={() => requireKyc("/manny-pay/cash-in")}
+                  onClick={() => requireKyc("/foodex-pay/cash-in")}
                   className="rounded-2xl bg-blue-100 py-4 font-bold text-blue-900"
                 >
                   ↙ Cash in
                 </button>
 
                 <button
-                  onClick={() => requireKyc("/manny-pay/send-money")}
+                  onClick={() => requireKyc("/foodex-pay/send-money")}
                   className="rounded-2xl bg-blue-100 py-4 font-bold text-blue-900"
                 >
                   ↗ Send
@@ -236,49 +236,49 @@ function requireKyc(route: string) {
                 {
                   label: "Bank transfer",
                   icon: "🏦",
-                  route: "/manny-pay/bank-transfer",
+                  route: "/foodex-pay/bank-transfer",
                   locked: true,
                 },
                 {
                   label: "Raffle Promo",
                   icon: "🎟️",
-                  route: "/manny-pay/raffle-promo",
+                  route: "/foodex-pay/raffle-promo",
                   locked: false,
                 },
                 {
                   label: "Crypto",
                   icon: "◆",
-                  route: "/manny-pay/crypto",
+                  route: "/foodex-pay/crypto",
                   locked: true,
                 },
                 {
                   label: "Refer & Earn",
                   icon: "🧍‍♀️💸",
-                  route: "/manny-pay/refer-earn",
+                  route: "/foodex-pay/refer-earn",
                   locked: false,
                 },
                 {
                   label: "Load",
                   icon: "📱",
-                  route: "/manny-pay/load",
+                  route: "/foodex-pay/load",
                   locked: true,
                 },
                 {
                   label: "Bills",
                   icon: "🧾",
-                  route: "/manny-pay/bills",
+                  route: "/foodex-pay/bills",
                   locked: true,
                 },
                 {
                   label: "Shop",
                   icon: "🛍️",
-                  route: "/manny-pay/shop",
+                  route: "/foodex-pay/shop",
                   locked: false,
                 },
                 {
                   label: "More",
-                  icon: "M",
-                  route: "/manny-pay/more",
+                  icon: "F",
+                  route: "/foodex-pay/more",
                   locked: false,
                 },
               ].map((item) => (
@@ -305,7 +305,7 @@ function requireKyc(route: string) {
                 <h2 className="text-3xl font-bold">Transactions</h2>
 
                 <button
-                  onClick={() => router.push("/manny-pay/history")}
+                  onClick={() => router.push("/foodex-pay/history")}
                   className="font-bold text-blue-700"
                 >
                   See all
@@ -363,7 +363,7 @@ function requireKyc(route: string) {
 
         {tab === "loans" && (
           <div className="rounded-3xl bg-white p-5 shadow-sm">
-            <h1 className="text-3xl font-bold">Manny Loans</h1>
+            <h1 className="text-3xl font-bold">Foodex Loans</h1>
             <p className="mt-3 text-gray-500">
               Check your loan eligibility and status.
             </p>
@@ -372,7 +372,7 @@ function requireKyc(route: string) {
 
         {tab === "cards" && (
           <div className="rounded-3xl bg-white p-5 shadow-sm">
-            <h1 className="text-3xl font-bold">Manny Card</h1>
+            <h1 className="text-3xl font-bold">Foodex Card</h1>
             <p className="mt-3 text-gray-500">
               Your virtual card will appear here.
             </p>
@@ -386,7 +386,7 @@ function requireKyc(route: string) {
 
               <div className="mx-auto mb-4 flex h-56 w-56 items-center justify-center rounded-2xl border bg-white p-4">
                 <QRCodeCanvas
-                  value={`manny-pay:${phone || "MP-CLIENT-0001"}`}
+                  value={`foodex-pay:${phone || "MP-CLIENT-0001"}`}
                   size={190}
                   level="H"
                   includeMargin
@@ -414,7 +414,7 @@ function requireKyc(route: string) {
           </button>
 
           <button
-            onClick={() => router.push("/manny-pay/qr-scan")}
+            onClick={() => router.push("/foodex-pay/qr-scan")}
             className="text-center"
           >
             <div className="text-2xl">📷</div>

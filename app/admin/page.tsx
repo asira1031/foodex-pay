@@ -61,7 +61,7 @@ const totalVolume = transactions.reduce(
       <div className="flex items-center justify-between mb-10">
         <div>
           <h1 className="text-4xl font-black text-emerald-400">
-            MANNY ADMIN
+            FOODEX ADMIN
           </h1>
 
           <p className="text-white/50 mt-2">

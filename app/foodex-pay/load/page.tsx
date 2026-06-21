@@ -9,32 +9,32 @@ export default function LoadPage() {
     {
       name: "GCash",
       color: "bg-blue-500",
-      route: "/manny-pay/load/gcash",
+      route: "/foodex-pay/load/gcash",
     },
     {
       name: "Smart",
       color: "bg-green-500",
-      route: "/manny-pay/load/smart",
+      route: "/foodex-pay/load/smart",
     },
     {
       name: "TNT",
       color: "bg-yellow-400",
-      route: "/manny-pay/load/tnt",
+      route: "/foodex-pay/load/tnt",
     },
     {
       name: "Globe",
       color: "bg-blue-700",
-      route: "/manny-pay/load/globe",
+      route: "/foodex-pay/load/globe",
     },
     {
       name: "TM",
       color: "bg-cyan-500",
-      route: "/manny-pay/load/tm",
+      route: "/foodex-pay/load/tm",
     },
     {
       name: "DITO",
       color: "bg-red-500",
-      route: "/manny-pay/load/dito",
+      route: "/foodex-pay/load/dito",
     },
   ];
 
@@ -51,7 +51,7 @@ export default function LoadPage() {
         <h1 className="text-4xl font-bold">Load</h1>
 
         <p className="mt-3 text-gray-500">
-          Buy prepaid mobile load using Manny Pay.
+          Buy prepaid mobile load using Foodex Pay.
         </p>
 
         <div className="mt-8 grid grid-cols-2 gap-4">

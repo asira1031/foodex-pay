@@ -39,7 +39,7 @@ export default function AdminPayoutsPage() {
           <div className="rounded-2xl border border-white/10 bg-black/40 p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white font-black">MANNY-26</p>
+                <p className="text-white font-black">FOODEX-26</p>
 
                 <p className="text-sm text-white/40 mt-1">
                   UnionBank simulated payout workflow

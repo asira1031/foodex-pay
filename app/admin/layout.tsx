@@ -13,11 +13,11 @@ export default function AdminLayout({
 
   useEffect(() => {
     const loggedIn =
-      localStorage.getItem("manny_pay_logged_in") ||
-      localStorage.getItem("manny_pay_wallet_logged_in");
+      localStorage.getItem("foodex_pay_logged_in") ||
+      localStorage.getItem("foodex_pay_wallet_logged_in");
 
     if (loggedIn !== "yes") {
-      router.push("/manny-pay/login");
+      router.push("/foodex-pay/login");
       return;
     }
 
@@ -25,14 +25,14 @@ export default function AdminLayout({
   }, [router]);
 
   function handleLogout() {
-    localStorage.removeItem("manny_pay_logged_in");
-    localStorage.removeItem("manny_pay_wallet_logged_in");
-    localStorage.removeItem("manny_pay_phone");
-    localStorage.removeItem("manny_pay_wallet_phone");
-    localStorage.removeItem("manny_pay_full_name");
-    localStorage.removeItem("manny_pay_wallet_full_name");
+    localStorage.removeItem("foodex_pay_logged_in");
+    localStorage.removeItem("foodex_pay_wallet_logged_in");
+    localStorage.removeItem("foodex_pay_phone");
+    localStorage.removeItem("foodex_pay_wallet_phone");
+    localStorage.removeItem("foodex_pay_full_name");
+    localStorage.removeItem("foodex_pay_wallet_full_name");
 
-    router.push("/manny-pay/login");
+    router.push("/foodex-pay/login");
   }
 
   if (checking) {
@@ -47,7 +47,7 @@ export default function AdminLayout({
     <main className="min-h-screen bg-black text-white">
       <header className="flex items-center justify-between border-b border-white/10 px-6 py-4">
         <div>
-          <h1 className="text-xl font-bold">Manny Pay Admin</h1>
+          <h1 className="text-xl font-bold">Foodex Pay Admin</h1>
           <p className="text-sm text-white/50">Control Center</p>
         </div>
 

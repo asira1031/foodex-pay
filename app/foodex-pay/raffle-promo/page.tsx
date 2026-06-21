@@ -9,12 +9,12 @@ export default function RafflePromoPage() {
   const [tickets, setTickets] = useState(0);
 
   useEffect(() => {
-    setTickets(Number(localStorage.getItem("manny_pay_raffle_tickets") || "0"));
+    setTickets(Number(localStorage.getItem("foodex_pay_raffle_tickets") || "0"));
   }, []);
 
   function buyTicket() {
     const price = 20;
-    const balance = Number(localStorage.getItem("manny_pay_wallet_balance") || "0");
+    const balance = Number(localStorage.getItem("foodex_pay_wallet_balance") || "0");
 
     if (balance < price) {
       alert("Insufficient wallet balance.");
@@ -25,31 +25,31 @@ export default function RafflePromoPage() {
     const updatedTickets = tickets + 1;
     const reference = `AW-RAFFLE-${Date.now()}`;
 
-    localStorage.setItem("manny_pay_wallet_balance", updatedBalance.toString());
-    localStorage.setItem("manny_pay_raffle_tickets", updatedTickets.toString());
+    localStorage.setItem("foodex_pay_wallet_balance", updatedBalance.toString());
+    localStorage.setItem("foodex_pay_raffle_tickets", updatedTickets.toString());
     setTickets(updatedTickets);
 
     const transaction = {
       id: reference,
       type: "Raffle Ticket",
       amount: price,
-      method: "Manny Pay Raffle Promo",
+      method: "Foodex Pay Raffle Promo",
       status: "Completed",
       recipient: `Ticket #${updatedTickets}`,
       createdAt: new Date().toISOString(),
     };
 
-    const existing = localStorage.getItem("manny_pay_wallet_transactions");
+    const existing = localStorage.getItem("foodex_pay_wallet_transactions");
     const transactions = existing ? JSON.parse(existing) : [];
 
     localStorage.setItem(
-      "manny_pay_wallet_transactions",
+      "foodex_pay_wallet_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
-    localStorage.setItem("manny_pay_wallet_latest_receipt", JSON.stringify(transaction));
+    localStorage.setItem("foodex_pay_wallet_latest_receipt", JSON.stringify(transaction));
 
-    router.push("/manny-pay/receipt");
+    router.push("/foodex-pay/receipt");
   }
 
   function simulateWin() {
@@ -59,27 +59,27 @@ export default function RafflePromoPage() {
     }
 
     const prize = 100;
-    const balance = Number(localStorage.getItem("manny_pay_wallet_balance") || "0");
+    const balance = Number(localStorage.getItem("foodex_pay_wallet_balance") || "0");
     const updatedBalance = balance + prize;
     const reference = `AW-RAFFLE-WIN-${Date.now()}`;
 
-    localStorage.setItem("manny_pay_wallet_balance", updatedBalance.toString());
+    localStorage.setItem("foodex_pay_wallet_balance", updatedBalance.toString());
 
     const transaction = {
       id: reference,
       type: "Raffle Prize",
       amount: prize,
-      method: "Manny Pay Raffle Promo",
+      method: "Foodex Pay Raffle Promo",
       status: "Completed",
       recipient: "Promo Reward",
       createdAt: new Date().toISOString(),
     };
 
-    const existing = localStorage.getItem("manny_pay_wallet_transactions");
+    const existing = localStorage.getItem("foodex_pay_wallet_transactions");
     const transactions = existing ? JSON.parse(existing) : [];
 
     localStorage.setItem(
-      "manny_pay_wallet_transactions",
+      "foodex_pay_wallet_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
@@ -94,7 +94,7 @@ export default function RafflePromoPage() {
         </button>
 
         <div className="rounded-3xl bg-gradient-to-r from-[#0B1F6D] to-[#1E3A8A] p-6 text-white shadow-xl">
-          <p className="text-sm text-white/50">Manny Pay Raffle Promo</p>
+          <p className="text-sm text-white/50">Foodex Pay Raffle Promo</p>
           <h1 className="mt-3 text-4xl font-bold">Raffle Rewards</h1>
           <p className="mt-2 text-white/50">Buy tickets and win wallet prizes.</p>
         </div>

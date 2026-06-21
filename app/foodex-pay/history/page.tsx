@@ -18,7 +18,7 @@ export default function HistoryPage() {
   const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
 
   useEffect(() => {
-    const stored = localStorage.getItem("manny_pay_transactions");
+    const stored = localStorage.getItem("foodex_pay_transactions");
 
     setTransactions(stored ? JSON.parse(stored) : []);
   }, []);

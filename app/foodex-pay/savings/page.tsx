@@ -12,11 +12,11 @@ export default function SavingsPage() {
 
   useEffect(() => {
     const wallet = Number(
-      localStorage.getItem("manny_pay_wallet_balance") || "0"
+      localStorage.getItem("foodex_pay_wallet_balance") || "0"
     );
 
     const savings = Number(
-      localStorage.getItem("manny_pay_savings_balance") || "0"
+      localStorage.getItem("foodex_pay_savings_balance") || "0"
     );
 
     setWalletBalance(wallet);
@@ -28,12 +28,12 @@ export default function SavingsPage() {
     setSavingsBalance(savings);
 
     localStorage.setItem(
-      "manny_pay_wallet_balance",
+      "foodex_pay_wallet_balance",
       wallet.toString()
     );
 
     localStorage.setItem(
-      "manny_pay_savings_balance",
+      "foodex_pay_savings_balance",
       savings.toString()
     );
   }
@@ -54,7 +54,7 @@ export default function SavingsPage() {
     };
 
     const existing = localStorage.getItem(
-      "manny_pay_wallet_transactions"
+      "foodex_pay_wallet_transactions"
     );
 
     const transactions = existing
@@ -62,7 +62,7 @@ export default function SavingsPage() {
       : [];
 
     localStorage.setItem(
-      "manny_pay_wallet_transactions",
+      "foodex_pay_wallet_transactions",
       JSON.stringify([transaction, ...transactions])
     );
   }
@@ -137,7 +137,7 @@ export default function SavingsPage() {
 
         <div className="rounded-3xl bg-emerald-600 p-6 text-white shadow-sm">
           <p className="text-sm text-white/70">
-            Manny Savings
+            Foodex Savings
           </p>
 
           <h1 className="mt-3 text-4xl font-bold">

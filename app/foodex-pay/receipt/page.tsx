@@ -17,12 +17,12 @@ export default function ReceiptPage() {
   const [receipt, setReceipt] = useState<Receipt | null>(null);
 
   useEffect(() => {
-    const stored = localStorage.getItem("manny_pay_wallet_latest_receipt");
+    const stored = localStorage.getItem("foodex_pay_wallet_latest_receipt");
     setReceipt(stored ? JSON.parse(stored) : null);
   }, []);
 
   const type = receipt?.type || "Transaction";
-  const method = receipt?.method || "Manny Pay Wallet";
+  const method = receipt?.method || "Foodex Pay Wallet";
   const recipient = receipt?.recipient || "-";
   const amount = receipt?.amount || 0;
   const reference = receipt?.id || "-";
@@ -72,7 +72,7 @@ export default function ReceiptPage() {
           </div>
 
           <button
-            onClick={() => router.push("/manny-pay/dashboard")}
+            onClick={() => router.push("/foodex-pay/dashboard")}
             className="mt-8 w-full rounded-2xl bg-emerald-600 py-4 font-bold text-white"
           >
             Back to Dashboard

@@ -25,7 +25,7 @@ export default function SendMoneyPage() {
 
   useEffect(() => {
     const currentBalance = Number(
-      localStorage.getItem("manny_pay_wallet_balance") || "0"
+      localStorage.getItem("foodex_pay_wallet_balance") || "0"
     );
 
     setBalance(currentBalance);
@@ -49,7 +49,7 @@ export default function SendMoneyPage() {
 
     const updatedBalance = balance - sendAmount;
 
-    localStorage.setItem("manny_pay_wallet_balance", updatedBalance.toString());
+    localStorage.setItem("foodex_pay_wallet_balance", updatedBalance.toString());
 
     const transaction: WalletTransaction = {
       id: `AW-SEND-${Date.now()}`,
@@ -62,18 +62,18 @@ export default function SendMoneyPage() {
       createdAt: new Date().toISOString(),
     };
 
-    const existing = localStorage.getItem("manny_pay_wallet_transactions");
+    const existing = localStorage.getItem("foodex_pay_wallet_transactions");
     const transactions: WalletTransaction[] = existing
       ? JSON.parse(existing)
       : [];
 
     localStorage.setItem(
-      "manny_pay_wallet_transactions",
+      "foodex_pay_wallet_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
     alert(`Money sent: ₱${sendAmount.toLocaleString()} to ${recipient}`);
-    router.push("/manny-pay/dashboard");
+    router.push("/foodex-pay/dashboard");
   }
 
   return (
@@ -138,7 +138,7 @@ export default function SendMoneyPage() {
         </div>
 
         <p className="mb-4 px-4 text-sm text-gray-500">
-          Send money using your Manny Pay Wallet balance.
+          Send money using your Foodex Pay Wallet balance.
         </p>
 
         <div className="mb-6 rounded-2xl bg-gray-100 px-4 py-3">

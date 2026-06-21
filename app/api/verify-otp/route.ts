@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     const now = new Date().toISOString();
 
     const { data, error } = await supabaseAdmin
-      .from("manny_pay_phone_otps")
+      .from("foodex_pay_phone_otps")
       .select("*")
       .eq("phone", phone)
       .eq("otp_code", otp)
@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     }
 
     await supabaseAdmin
-      .from("manny_pay_phone_otps")
+      .from("foodex_pay_phone_otps")
       .update({ verified: true })
       .eq("id", data.id);
 

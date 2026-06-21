@@ -28,7 +28,7 @@ export default function LoansPage() {
 
   useEffect(() => {
     const stored = Number(
-      localStorage.getItem("manny_pay_active_loan") || "0"
+      localStorage.getItem("foodex_pay_active_loan") || "0"
     );
 
     setActiveLoan(stored);
@@ -38,7 +38,7 @@ export default function LoansPage() {
     setActiveLoan(value);
 
     localStorage.setItem(
-      "manny_pay_active_loan",
+      "foodex_pay_active_loan",
       value.toString()
     );
   }
@@ -54,12 +54,12 @@ export default function LoansPage() {
       amount,
       method,
       status: "Completed",
-      recipient: "Manny Loans",
+      recipient: "Foodex Loans",
       createdAt: new Date().toISOString(),
     };
 
     const existing = localStorage.getItem(
-      "manny_pay_transactions"
+      "foodex_pay_transactions"
     );
 
     const transactions = existing
@@ -67,7 +67,7 @@ export default function LoansPage() {
       : [];
 
     localStorage.setItem(
-      "manny_pay_transactions",
+      "foodex_pay_transactions",
       JSON.stringify([transaction, ...transactions])
     );
   }
@@ -79,13 +79,13 @@ export default function LoansPage() {
     }
 
     const walletBalance = Number(
-      localStorage.getItem("manny_pay_balance") || "0"
+      localStorage.getItem("foodex_pay_balance") || "0"
     );
 
     const updatedWallet = walletBalance + amount;
 
     localStorage.setItem(
-      "manny_pay_balance",
+      "foodex_pay_balance",
       updatedWallet.toString()
     );
 
@@ -94,7 +94,7 @@ export default function LoansPage() {
     addTransaction(
       "Loan Release",
       amount,
-      "Manny Loans"
+      "Foodex Loans"
     );
 
     alert(`Loan approved: ₱${amount.toLocaleString()}`);
@@ -107,7 +107,7 @@ export default function LoansPage() {
     }
 
     const walletBalance = Number(
-      localStorage.getItem("manny_pay_balance") || "0"
+      localStorage.getItem("foodex_pay_balance") || "0"
     );
 
     if (walletBalance < activeLoan) {
@@ -118,14 +118,14 @@ export default function LoansPage() {
     const updatedWallet = walletBalance - activeLoan;
 
     localStorage.setItem(
-      "manny_pay_balance",
+      "foodex_pay_balance",
       updatedWallet.toString()
     );
 
     addTransaction(
       "Loan Repayment",
       activeLoan,
-      "Manny Loans"
+      "Foodex Loans"
     );
 
     saveLoan(0);
@@ -145,7 +145,7 @@ export default function LoansPage() {
 
         <div className="rounded-3xl bg-purple-600 p-6 text-white shadow-sm">
           <p className="text-sm text-white/70">
-            Manny Loans
+            Foodex Loans
           </p>
 
           <h1 className="mt-3 text-4xl font-bold">

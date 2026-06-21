@@ -25,7 +25,7 @@ export default function BuyCryptoPage() {
 
   function handleBuy() {
     const currentBalance = Number(
-      localStorage.getItem("manny_pay_balance") || "0"
+      localStorage.getItem("foodexpay_balance") || "0"
     );
 
     if (!phpAmount || amount <= 0) {
@@ -41,9 +41,9 @@ export default function BuyCryptoPage() {
     const reference = `AW-CRYPTO-BUY-${Date.now()}`;
     const updatedBalance = currentBalance - amount;
 
-    localStorage.setItem("manny_pay_balance", updatedBalance.toString());
+    localStorage.setItem("foodex_pay_balance", updatedBalance.toString());
 
-    const existingCrypto = localStorage.getItem("manny_pay_crypto_balances");
+    const existingCrypto = localStorage.getItem("foodex_pay_crypto_balances");
     const cryptoBalances = existingCrypto ? JSON.parse(existingCrypto) : {};
 
     const currentCoinBalance = Number(cryptoBalances[coin] || 0);
@@ -52,7 +52,7 @@ export default function BuyCryptoPage() {
     cryptoBalances[coin] = updatedCoinBalance;
 
     localStorage.setItem(
-      "manny_pay_crypto_balances",
+      "foodex_pay_crypto_balances",
       JSON.stringify(cryptoBalances)
     );
 
@@ -66,20 +66,20 @@ export default function BuyCryptoPage() {
       createdAt: new Date().toISOString(),
     };
 
-    const existing = localStorage.getItem("manny_pay_transactions");
+    const existing = localStorage.getItem("foodex_pay_transactions");
     const transactions = existing ? JSON.parse(existing) : [];
 
     localStorage.setItem(
-      "manny_pay_transactions",
+      "foodexy_pay_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
     localStorage.setItem(
-      "manny_pay_latest_receipt",
+      "foodex_pay_latest_receipt",
       JSON.stringify(transaction)
     );
 
-    router.push("/manny-pay/receipt");
+    router.push("/foodex-pay/receipt");
   }
 
   return (

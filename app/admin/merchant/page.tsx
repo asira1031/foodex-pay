@@ -27,7 +27,7 @@ export default function MerchantPage() {
       return;
     }
 
-    const reference = `MANNY-${Date.now()}`;
+    const reference = `FOODEX-${Date.now()}`;
     const url = `${window.location.origin}/checkout/${reference}`;
 
     const newPayment: Payment = {

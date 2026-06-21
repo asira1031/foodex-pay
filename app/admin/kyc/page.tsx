@@ -21,7 +21,7 @@ export default function AdminKYCPage() {
   async function loadKYC() {
     setLoading(true);
 
-    const res = await fetch("/api/manny-pay/admin/kyc", {
+    const res = await fetch("/api/foodex-pay/admin/kyc", {
       method: "GET",
       cache: "no-store",
     });
@@ -39,7 +39,7 @@ export default function AdminKYCPage() {
   }
 
   async function updateStatus(id: string, status: "APPROVED" | "REJECTED") {
-    const res = await fetch("/api/manny-pay/admin/kyc", {
+    const res = await fetch("/api/feedex-pay/admin/kyc", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ export default function AdminKYCPage() {
   return (
     <main className="min-h-screen bg-black px-6 py-10 text-white">
       <div className="mx-auto max-w-6xl">
-        <h1 className="text-4xl font-black">Manny Pay KYC Review</h1>
+        <h1 className="text-4xl font-black">Foodex Pay KYC Review</h1>
         <p className="mt-2 text-white/50">Review submitted IDs and selfies.</p>
 
         {loading ? (

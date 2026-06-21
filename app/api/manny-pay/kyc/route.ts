@@ -11,7 +11,7 @@ const supabase = createClient(
 export async function GET() {
   try {
     const { data, error } = await supabase
-      .from("manny_pay_kyc")
+      .from("foodex_pay_kyc")
       .select("*")
       .order("created_at", { ascending: false });
 
@@ -46,7 +46,7 @@ export async function PATCH(req: Request) {
     }
 
     const { data, error } = await supabase
-      .from("manny_pay_kyc")
+      .from("foodex_pay_kyc")
       .update({ status })
       .eq("id", id)
       .select()

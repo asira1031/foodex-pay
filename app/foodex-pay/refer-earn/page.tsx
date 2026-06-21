@@ -9,15 +9,15 @@ export default function ReferEarnPage() {
   const [referrals, setReferrals] = useState(0);
   const [earnings, setEarnings] = useState(0);
 
-  const referralCode = "MANNY-2026";
+  const referralCode = "FOODEX-2026";
 
   useEffect(() => {
     const storedReferrals = Number(
-      localStorage.getItem("manny_pay_referrals") || "0"
+      localStorage.getItem("foodex_pay_referrals") || "0"
     );
 
     const storedEarnings = Number(
-      localStorage.getItem("manny_pay_referral_earnings") || "0"
+      localStorage.getItem("foodex_pay_referral_earnings") || "0"
     );
 
     setReferrals(storedReferrals);
@@ -32,23 +32,23 @@ export default function ReferEarnPage() {
     setEarnings(updatedEarnings);
 
     localStorage.setItem(
-      "manny_pay_referrals",
+      "foodex_pay_referrals",
       updatedReferrals.toString()
     );
 
     localStorage.setItem(
-      "manny_pay_referral_earnings",
+      "foodex_pay_referral_earnings",
       updatedEarnings.toString()
     );
 
     const currentBalance = Number(
-      localStorage.getItem("manny_pay_wallet_balance") || "0"
+      localStorage.getItem("foodex_pay_wallet_balance") || "0"
     );
 
     const updatedBalance = currentBalance + 50;
 
     localStorage.setItem(
-      "manny_pay_wallet_balance",
+      "foodex_pay_wallet_balance",
       updatedBalance.toString()
     );
 
@@ -63,7 +63,7 @@ export default function ReferEarnPage() {
     };
 
     const existing = localStorage.getItem(
-      "manny_pay_wallet_transactions"
+      "foodex_pay_wallet_transactions"
     );
 
     const transactions = existing
@@ -71,7 +71,7 @@ export default function ReferEarnPage() {
       : [];
 
     localStorage.setItem(
-      "manny_pay_wallet_transactions",
+      "foodex_pay_wallet_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
@@ -161,7 +161,7 @@ export default function ReferEarnPage() {
         </div>
 
         <div className="mt-6 rounded-3xl bg-yellow-50 p-5 text-sm text-yellow-800">
-          Rewards are automatically credited to your Manny Pay Wallet balance after successful referrals.
+          Rewards are automatically credited to your Foodex Pay Wallet balance after successful referrals.
         </div>
       </div>
     </main>

@@ -20,7 +20,7 @@ export default function CryptoPage() {
   );
 
   useEffect(() => {
-    const stored = localStorage.getItem("manny_pay_crypto_balances");
+    const stored = localStorage.getItem("foodex_pay_crypto_balances");
     setCryptoBalances(stored ? JSON.parse(stored) : {});
   }, []);
 
@@ -69,7 +69,7 @@ export default function CryptoPage() {
         </button>
 
         <div className="rounded-3xl bg-black p-6 text-white shadow-sm">
-          <p className="text-sm text-white/50">Manny Pay Crypto Wallet</p>
+          <p className="text-sm text-white/50">foodex Pay Crypto Wallet</p>
 
           <h1 className="mt-3 text-4xl font-bold">
             ₱{totalValue.toLocaleString(undefined, { minimumFractionDigits: 2 })}
@@ -87,10 +87,10 @@ export default function CryptoPage() {
                 key={item.title}
                 onClick={() => {
                   const routes: Record<string, string> = {
-                    "Buy Crypto": "/manny-pay/crypto/buy",
-                    "Sell Crypto": "/manny-pay/crypto/sell",
-                    "Send Crypto": "/manny-pay/crypto/send",
-                    "Receive Crypto": "/manny-pay/crypto/receive",
+                    "Buy Crypto": "/foodex-pay/crypto/buy",
+                    "Sell Crypto": "/foodex-pay/crypto/sell",
+                    "Send Crypto": "/foodexy-pay/crypto/send",
+                    "Receive Crypto": "/foodex-pay/crypto/receive",
                   };
 
                   router.push(routes[item.title]);
@@ -156,13 +156,13 @@ export default function CryptoPage() {
           <h2 className="text-xl font-bold">Wallet Address</h2>
 
           <p className="mt-3 break-all rounded-2xl bg-gray-100 p-4 text-sm text-gray-600">
-            0xmanny000000000000000000000000000000000000
+            0xfoodex000000000000000000000000000000000000
           </p>
 
           <button
             onClick={() =>
               navigator.clipboard.writeText(
-                "0xmanny000000000000000000000000000000000000"
+                "0xfoodex000000000000000000000000000000000000"
               )
             }
             className="mt-4 w-full rounded-2xl bg-emerald-600 py-3 font-bold text-white"

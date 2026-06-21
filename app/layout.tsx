@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MANNY PAY",
+  title: "FOODEX PAY",
   description:
-    "Digital wallet for payments, QR transfers, bank transfers, and savings.",
+    "Digital wallet for cash-in, send money, QR payments, bills, savings, and merchant services.",
   manifest: "/manifest.json",
   icons: {
     icon: "/icon-192.png",
@@ -35,7 +35,7 @@ export default function RootLayout({
             pointerEvents: "none",
           }}
         >
-          Powered by Fintech Solutions Provider Inc.
+          Powered by Technological digital innovation Inc.
         </div>
       </body>
     </html>

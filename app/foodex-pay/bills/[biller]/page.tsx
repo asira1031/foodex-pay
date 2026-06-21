@@ -34,7 +34,7 @@ export default function BillerPaymentPage() {
 
     const paymentAmount = Number(amount);
     const currentBalance = Number(
-      localStorage.getItem("manny_pay_balance") || "0"
+      localStorage.getItem("foodex_pay_balance") || "0"
     );
 
     if (paymentAmount <= 0) {
@@ -50,7 +50,7 @@ export default function BillerPaymentPage() {
     const reference = `AW-BILLS-${Date.now()}`;
     const updatedBalance = currentBalance - paymentAmount;
 
-    localStorage.setItem("manny_pay_balance", updatedBalance.toString());
+    localStorage.setItem("foodex_pay_balance", updatedBalance.toString());
 
     const transaction: WalletTransaction = {
       id: reference,
@@ -63,23 +63,23 @@ export default function BillerPaymentPage() {
       createdAt: new Date().toISOString(),
     };
 
-    const existing = localStorage.getItem("manny_pay_transactions");
+    const existing = localStorage.getItem("foodex_pay_transactions");
     const transactions: WalletTransaction[] = existing
       ? JSON.parse(existing)
       : [];
 
     localStorage.setItem(
-      "manny_pay_transactions",
+      "foodex_pay_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
-    localStorage.setItem("manny_pay_receipt_type", "Bills Payment");
-    localStorage.setItem("manny_pay_receipt_method", biller);
-    localStorage.setItem("manny_pay_receipt_recipient", accountName);
-    localStorage.setItem("manny_pay_receipt_amount", paymentAmount.toString());
-    localStorage.setItem("manny_pay_receipt_reference", reference);
+    localStorage.setItem("foodex_pay_receipt_type", "Bills Payment");
+    localStorage.setItem("foodex_pay_receipt_method", biller);
+    localStorage.setItem("foodex_pay_receipt_recipient", accountName);
+    localStorage.setItem("foodex_pay_receipt_amount", paymentAmount.toString());
+    localStorage.setItem("foodex_pay_receipt_reference", reference);
 
-    router.push("/manny-pay/receipt");
+    router.push("/foodex-pay/receipt");
   }
 
   return (
@@ -93,7 +93,7 @@ export default function BillerPaymentPage() {
           <h1 className="text-3xl font-bold">{biller}</h1>
 
           <p className="mt-3 text-gray-500">
-            Pay your {biller} bill using Manny Pay.
+            Pay your {biller} bill using foodex Pay.
           </p>
 
           <div className="mt-8">

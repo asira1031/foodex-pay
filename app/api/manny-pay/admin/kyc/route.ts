@@ -16,7 +16,7 @@ function kycApprovedEmail(fullName: string) {
     <div style="font-family: Arial, sans-serif; max-width:600px; margin:auto; padding:24px; background:#ffffff; color:#111827;">
       <div style="text-align:center; padding:20px 0;">
         <h1 style="margin:0; font-size:28px; color:#111827;">
-          Manny Pay KYC Approved
+          Foodex Pay KYC Approved
         </h1>
         <p style="margin-top:8px; color:#6b7280;">
           Your identity verification has been completed.
@@ -24,10 +24,10 @@ function kycApprovedEmail(fullName: string) {
       </div>
 
       <div style="background:#f9fafb; border-radius:16px; padding:24px; border:1px solid #e5e7eb;">
-        <p>Hello <strong>${fullName || "Manny Pay User"}</strong>,</p>
+        <p>Hello <strong>${fullName || "Foodex Pay User"}</strong>,</p>
 
         <p>
-          Congratulations! Your Manny Pay KYC verification has been approved.
+          Congratulations! Your Foodex Pay KYC verification has been approved.
           Your account is now verified.
         </p>
 
@@ -47,12 +47,12 @@ function kycApprovedEmail(fullName: string) {
 
         <p>
           Best regards,<br />
-          <strong>Manny Pay Team</strong>
+          <strong>Foodex Pay Team</strong>
         </p>
       </div>
 
       <p style="font-size:12px; color:#6b7280; text-align:center; margin-top:24px;">
-        This is an automated email from Manny Pay. Please do not reply directly to this message.
+        This is an automated email from foodex Pay. Please do not reply directly to this message.
       </p>
     </div>
   `;
@@ -63,7 +63,7 @@ function kycRejectedEmail(fullName: string) {
     <div style="font-family: Arial, sans-serif; max-width:600px; margin:auto; padding:24px; background:#ffffff; color:#111827;">
       <div style="text-align:center; padding:20px 0;">
         <h1 style="margin:0; font-size:28px; color:#111827;">
-          Manny Pay KYC Update
+          Foodex Pay KYC Update
         </h1>
         <p style="margin-top:8px; color:#6b7280;">
           Your verification needs attention.
@@ -71,7 +71,7 @@ function kycRejectedEmail(fullName: string) {
       </div>
 
       <div style="background:#f9fafb; border-radius:16px; padding:24px; border:1px solid #e5e7eb;">
-        <p>Hello <strong>${fullName || "Manny Pay User"}</strong>,</p>
+        <p>Hello <strong>${fullName || "Foodex Pay User"}</strong>,</p>
 
         <p>
           We reviewed your KYC submission, but it could not be approved at this time.
@@ -80,12 +80,12 @@ function kycRejectedEmail(fullName: string) {
 
         <p>
           Best regards,<br />
-          <strong>Manny Pay Team</strong>
+          <strong>Foodex Pay Team</strong>
         </p>
       </div>
 
       <p style="font-size:12px; color:#6b7280; text-align:center; margin-top:24px;">
-        This is an automated email from Manny Pay. Please do not reply directly to this message.
+        This is an automated email from Foodex Pay. Please do not reply directly to this message.
       </p>
     </div>
   `;
@@ -94,7 +94,7 @@ function kycRejectedEmail(fullName: string) {
 export async function GET() {
   try {
     const { data, error } = await supabase
-      .from("manny_pay_kyc")
+      .from("foodex_pay_kyc")
       .select("*")
       .order("created_at", { ascending: false });
 
@@ -124,7 +124,7 @@ export async function PATCH(req: Request) {
     }
 
     const { data, error } = await supabase
-      .from("manny_pay_kyc")
+      .from("foodex_pay_kyc")
       .update({ status })
       .eq("id", id)
       .select()
@@ -135,10 +135,10 @@ export async function PATCH(req: Request) {
     if (data?.client_email && status === "APPROVED") {
       await resend.emails.send({
         from:
-          process.env.MANNY_EMAIL_FROM ||
-          "Manny Pay <noreply@manny-pay.com>",
+          process.env.FOODEX_EMAIL_FROM ||
+          "Foodex Pay <noreply@foodex-pay.com>",
         to: data.client_email,
-        subject: "Your Manny Pay KYC Has Been Approved",
+        subject: "Your Foodex Pay KYC Has Been Approved",
         html: kycApprovedEmail(data.full_name),
       });
     }
@@ -146,10 +146,10 @@ export async function PATCH(req: Request) {
     if (data?.client_email && status === "REJECTED") {
       await resend.emails.send({
         from:
-          process.env.MANNY_EMAIL_FROM ||
-          "Manny Pay <noreply@manny-pay.com>",
+          process.env.FOODEX_EMAIL_FROM ||
+          "Foodex Pay <noreply@foodex-pay.com>",
         to: data.client_email,
-        subject: "Manny Pay KYC Update",
+        subject: "Foodex Pay KYC Update",
         html: kycRejectedEmail(data.full_name),
       });
     }

@@ -33,7 +33,7 @@ export default function NetworkLoadPage() {
     const loadAmount = Number(amount);
 
     const currentBalance = Number(
-      localStorage.getItem("manny_pay_balance") || "0"
+      localStorage.getItem("foodex_pay_balance") || "0"
     );
 
     if (loadAmount <= 0) {
@@ -49,7 +49,7 @@ export default function NetworkLoadPage() {
     const updatedBalance = currentBalance - loadAmount;
 
     localStorage.setItem(
-      "manny_pay_balance",
+      "foodex_pay_balance",
       updatedBalance.toString()
     );
 
@@ -64,7 +64,7 @@ export default function NetworkLoadPage() {
     };
 
     const existing = localStorage.getItem(
-      "manny_pay_transactions"
+      "foodex_pay_transactions"
     );
 
     const transactions: WalletTransaction[] = existing
@@ -72,16 +72,16 @@ export default function NetworkLoadPage() {
       : [];
 
     localStorage.setItem(
-      "manny_pay_transactions",
+      "foodex_pay_transactions",
       JSON.stringify([transaction, ...transactions])
     );
 
     localStorage.setItem(
-      "manny_pay_latest_receipt",
+      "foodex_pay_latest_receipt",
       JSON.stringify(transaction)
     );
 
-    router.push("/manny-pay/receipt");
+    router.push("/foodex-pay/receipt");
   }
 
   return (
@@ -100,7 +100,7 @@ export default function NetworkLoadPage() {
           </h1>
 
           <p className="mt-3 text-gray-500">
-            Buy prepaid mobile load using Manny Pay.
+            Buy prepaid mobile load using Foodex Pay.
           </p>
 
           <div className="mt-8">

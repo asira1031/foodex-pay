@@ -31,10 +31,10 @@ export default function KYCPage() {
       setLoading(true);
 
       const clientEmail =
-  localStorage.getItem("manny_pay_wallet_email") || "guest";
+  localStorage.getItem("foodex_pay_wallet_email") || "guest";
 
 const phone =
-  localStorage.getItem("manny_pay_wallet_phone") || "";
+  localStorage.getItem("foodex_pay_wallet_phone") || "";
 
       const formData = new FormData();
 
@@ -47,7 +47,7 @@ const phone =
       formData.append("selfieFile", selfieFile);
 
       const res = await fetch(
-        "/api/manny-pay/kyc",
+        "/api/foodex-pay/kyc",
         {
           method: "POST",
           body: formData,
@@ -61,7 +61,7 @@ const phone =
       }
 
       localStorage.setItem(
-        "manny_pay_kyc_status",
+        "foodex_pay_kyc_status",
         "PENDING"
       );
 
@@ -69,7 +69,7 @@ const phone =
         "KYC submitted successfully. Status: PENDING"
       );
 
-      router.push("/manny-pay/dashboard");
+      router.push("/foodex-pay/dashboard");
     } catch (error: any) {
       alert(error.message || "KYC submission failed.");
     } finally {
@@ -89,7 +89,7 @@ const phone =
 
         <div className="rounded-3xl bg-black p-6 text-white shadow-sm">
           <p className="text-sm text-white/50">
-            Manny Pay
+            Foodex Pay
           </p>
 
           <h1 className="mt-3 text-4xl font-bold">
@@ -197,7 +197,7 @@ const phone =
         </div>
 
         <div className="mt-6 rounded-3xl bg-yellow-50 p-5 text-sm text-yellow-800">
-          Submitted KYC documents will be stored and reviewed by Manny Pay administrators.
+          Submitted KYC documents will be stored and reviewed by Foodex Pay administrators.
         </div>
       </div>
     </main>

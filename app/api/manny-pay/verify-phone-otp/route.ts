@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     }
 
     const { data, error } = await supabase
-      .from("manny_pay_clients")
+      .from("foodex_pay_clients")
       .select("*")
       .eq("email", email)
       .eq("phone", phone)
@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     }
 
     const { error: updateError } = await supabase
-      .from("manny_pay_clients")
+      .from("foodex_pay_clients")
       .update({
         phone_verified: true,
         phone_otp_code: null,

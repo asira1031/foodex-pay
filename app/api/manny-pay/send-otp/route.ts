@@ -27,9 +27,9 @@ export async function POST(req: Request) {
     const otp = makeOtp();
     const expires = new Date(Date.now() + 10 * 60 * 1000).toISOString();
 
-    console.log("MANNY PAY OTP FOR TEST:", otp);
+    console.log("FOODEX PAY OTP FOR TEST:", otp);
 
-    const { error } = await supabase.from("manny_pay_clients").upsert(
+    const { error } = await supabase.from("foodex_pay_clients").upsert(
       {
         full_name: fullName,
         email,
@@ -45,11 +45,11 @@ export async function POST(req: Request) {
     if (error) throw error;
 
     const emailResult = await resend.emails.send({
-      from: process.env.MANNY_EMAIL_FROM || "Manny Pay <onboarding@resend.dev>",
+      from: process.env.FOODEX_EMAIL_FROM || "Foodex Pay <onboarding@resend.dev>",
       to: email,
-      subject: "Your Manny Pay OTP Code",
+      subject: "Your Foodex Pay OTP Code",
       html: `
-        <h2>Manny Pay Email Verification</h2>
+        <h2>Foodex Pay Email Verification</h2>
         <p>Hello ${fullName},</p>
         <p>Your OTP code is:</p>
         <h1>${otp}</h1>

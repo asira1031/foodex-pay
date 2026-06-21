@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function MannyPayLoginPage() {
+export default function FoodexPayLoginPage() {
   const router = useRouter();
 
   const [phone, setPhone] = useState("");
@@ -21,15 +21,15 @@ export default function MannyPayLoginPage() {
       return;
     }
 
-    localStorage.setItem("manny_pay_logged_in", "yes");
-    localStorage.setItem("manny_pay_phone", phone);
+    localStorage.setItem("foodex_pay_logged_in", "yes");
+    localStorage.setItem("foodex_pay_phone", phone);
 
     localStorage.setItem(
-      "manny_pay_full_name",
-      localStorage.getItem("manny_pay_full_name") || "Manny Pay User"
+      "foodex_pay_full_name",
+      localStorage.getItem("foodex_pay_full_name") || "Foodex Pay User"
     );
 
-    router.push("/manny-pay/dashboard");
+    router.push("/foodex-pay/dashboard");
   }
 
   return (
@@ -37,8 +37,8 @@ export default function MannyPayLoginPage() {
       <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl">
         <div className="mb-8 flex flex-col items-center">
           <Image
-            src="/icon-192.jpg"
-            alt="Manny Pay"
+           src="/icon-192.png"
+            alt="Foodex Pay"
             width={320}
             height={120}
             priority
@@ -105,7 +105,7 @@ export default function MannyPayLoginPage() {
 
           <button
             type="button"
-            onClick={() => router.push("/manny-pay/signup")}
+            onClick={() => router.push("/foodex-pay/signup")}
             className="mt-5 w-full text-sm text-blue-400 transition hover:text-blue-300"
           >
             Create Wallet Account

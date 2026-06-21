@@ -39,7 +39,7 @@ export default function BillsPage() {
                 key={biller.name}
                 onClick={() =>
                   router.push(
-                    `manny-pay/bills/${biller.name
+                    `foodex-pay/bills/${biller.name
                       .toLowerCase()
                       .replaceAll(" ", "-")}`
                   )
