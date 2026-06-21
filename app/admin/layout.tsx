@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+const ADMIN_EMAIL_WHITELIST = [
+  "allancatu.inka@gmail.com",
+  "asira1031@gmail.com",
+];
+
 export default function AdminLayout({
   children,
 }: {
@@ -16,7 +21,26 @@ export default function AdminLayout({
       localStorage.getItem("foodex_pay_logged_in") ||
       localStorage.getItem("foodex_pay_wallet_logged_in");
 
+    const email =
+      localStorage.getItem("foodex_pay_email") ||
+      localStorage.getItem("foodex_pay_wallet_email") ||
+      "";
+
     if (loggedIn !== "yes") {
+      router.push("/foodex-pay/login");
+      return;
+    }
+
+    const isAdmin = ADMIN_EMAIL_WHITELIST.includes(
+      email.trim().toLowerCase()
+    );
+
+    if (!isAdmin) {
+      localStorage.removeItem("foodex_pay_logged_in");
+      localStorage.removeItem("foodex_pay_wallet_logged_in");
+
+      alert("Admin access denied.");
+
       router.push("/foodex-pay/login");
       return;
     }
@@ -31,6 +55,8 @@ export default function AdminLayout({
     localStorage.removeItem("foodex_pay_wallet_phone");
     localStorage.removeItem("foodex_pay_full_name");
     localStorage.removeItem("foodex_pay_wallet_full_name");
+    localStorage.removeItem("foodex_pay_email");
+    localStorage.removeItem("foodex_pay_wallet_email");
 
     router.push("/foodex-pay/login");
   }
