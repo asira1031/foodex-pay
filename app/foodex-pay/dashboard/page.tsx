@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { QRCodeCanvas } from "qrcode.react";
-import Image from "next/image";
+
 type Tab = "wallet" | "savings" | "credit" | "loans" | "cards";
 type KycStatus = "NOT_SUBMITTED" | "PENDING" | "APPROVED" | "REJECTED";
 
@@ -157,16 +157,7 @@ function requireKyc(route: string) {
               {email && <p className="text-xs text-gray-400">{email}</p>}
             </div>
           </div>
-<div className="mb-6 overflow-hidden rounded-3xl shadow-xl">
-  <Image
-    src="/foodex-pay-home.png"
-    alt="Foodex Pay Home"
-    width={1200}
-    height={700}
-    priority
-    className="h-auto w-full object-cover"
-  />
-</div>
+
           <button
             onClick={handleLogout}
             className="rounded-full bg-red-500 px-4 py-2 text-xs font-bold text-white"
